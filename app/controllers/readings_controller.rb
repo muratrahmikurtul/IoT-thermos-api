@@ -12,6 +12,9 @@ class ReadingsController < ApplicationController
   end
 
   def show
+    reading = $redis.get(params[:id]) || Reading.find_by(number: params[:id])
+    render json: { message: "Data not found with this Number" } and return unless reading
+    render json: reading
   end
 
   def stats
@@ -21,9 +24,9 @@ class ReadingsController < ApplicationController
 
   def authenticate_thermostat
     token = params[:household_token]
-    render json: { message: 'Please provide household token.' }, status: 401 and return if !token
+    render json: { message: 'Please provide household token.', status: 401 }, status: 401 and return unless token
     @thermostat = Thermostat.find_by(household_token: token)
-    render json: { message: 'Household token is invalid !' }, status: 401 and return if !@thermostat
+    render json: { message: 'Household token is invalid !', status: 401 }, status: 401 and return unless @thermostat
   end
 
   def check_params
