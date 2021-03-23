@@ -3,7 +3,7 @@ class ReadingsController < ApplicationController
   before_action :check_params, only: :create
 
   def index
-    @thermostat = Thermostat.all
+    @thermostats = Thermostat.all
   end
 
   def create
@@ -46,7 +46,7 @@ class ReadingsController < ApplicationController
     token = params[:household_token]
     render json: { message: 'Please provide household token.', status: 401 }, status: 401 and return unless token
     @thermostat = Thermostat.find_by(household_token: token)
-    render json: { message: 'Household token is invalid !', status: 401 }, status: 401 and return unless @thermostat
+    render json: { message: 'Household token is invalid', status: 401 }, status: 401 and return unless @thermostat
   end
 
   def check_params
