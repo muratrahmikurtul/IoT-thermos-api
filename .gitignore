@@ -37,3 +37,5 @@ yarn-debug.log*
 dump.rdb
 .idea/IOT-Thermo.iml
 .idea/*
+app/.DS_Store
+.DS_Store

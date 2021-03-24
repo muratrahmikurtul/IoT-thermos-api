@@ -71,7 +71,7 @@ or via Postman
 ```
 
 ## 2. GET Reading:
-> To get readings according to particular thermostat -
+> To get readings according to particular thermostat
 
 `http://localhost:3000/readings/1?household_token=d4b18b93-f0ec-47a5-8c51-40c2c8a849a0`
 
@@ -80,20 +80,20 @@ OR
 ```
 curl -X GET -d "household_token=d4b18b93-f0ec-47a5-8c51-40c2c8a849a0" http://localhost:3000/readings/:number
 
-curl -X GET -d "household_token=d4b18b93-f0ec-47a5-8c51-40c2c8a849a0" http://localhost:3000/readings/2
+curl -X GET -d "household_token=d4b18b93-f0ec-47a5-8c51-40c2c8a849a0" http://localhost:3000/readings/1
 ```
 
 ### Output
 ```
 {
-  "id": 2,
-  "thermostat_id": 1,
-  "number": 1,
-  "temperature": 74.05,
-  "humidity": 98.07,
-  "battery_charge": 71.01,
-  "created_at": "2019-03-27T13:03:45.295Z",
-  "updated_at": "2019-03-27T13:03:45.295Z"
+    "id": 2,
+    "thermostat_id": 16,
+    "number": 1,
+    "temperature": 26833.13,
+    "humidity": 92862.34,
+    "battery_charge": 62113.47,
+    "created_at": "2021-03-23T19:55:10.721Z",
+    "updated_at": "2021-03-23T19:55:10.721Z"
 }
   OR
 
@@ -112,28 +112,32 @@ OR
 ### Output
 ```
 {
-"stats": [
-  {
-    "temperature": {
-      "avg": 45.06,
-      "min": 15.4,
-      "max": 74.05
-    }
-  },
-  {
-  "humidity": {
-    "avg": 29.84,
-    "min": 1.1,
-    "max": 98.07
-    }
-  },
-  {
-  "battery_charge": {
-    "avg": 51.75,
-    "min": 12,
-    "max": 112
-    }
-  }
-  ]
+    "stats": [
+        {
+            "temperature": {
+                "avg": 86337.11,
+                "min": 86337.11,
+                "max": 86337.11
+            }
+        },
+        {
+            "humidity": {
+                "avg": 58585.22,
+                "min": 58585.22,
+                "max": 58585.22
+            }
+        },
+        {
+            "battery_charge": {
+                "avg": 90530.83,
+                "min": 90530.83,
+                "max": 90530.83
+            }
+        }
+    ]
 }
 ```
+## Stats SS
+
+![alt text](https://github.com/muratrahmikurtul/IoT-thermos-api/blob/master/public/Stats.png)
+
